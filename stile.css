@@ -1,8 +1,4 @@
 body {
-  background: #2222ff;
-}
-@media screen and (max-width: 420px) {
-body {
   background: #111;
   /* width: 420px;*/
   margin: 0px;
@@ -259,4 +255,4 @@ body {
   padding: 20px 5px 0px 0px;
   margin: 0;
 }
-}
+
