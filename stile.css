@@ -156,10 +156,7 @@ body {
   font-family: 'Indie Flower', cursive;
   font-size: 43px;
 }
-
-
 /*-_-_-_-_-_-_-_-_-_-_-_-__-_-_-_-_-_-__-_-_--_-*/
-
 .sectione {
   border-bottom: 2px solid #fff30092;
   padding-bottom: 2.9px;
@@ -217,21 +214,18 @@ body {
   font-family: 'Gotu', sans-serif;
 }
 .feature-inner#creative {
-  background: url(img/creative.png) no-repeat left top;
+  background: url(creative.png) no-repeat left top;
 }
 .feature-inner#responsible {
-  background: url(img/responsible.png) no-repeat left top;
+  background: url(responsible.png) no-repeat left top;
 }
 .feature-inner#coin {
-  background: url(img/coin.png) no-repeat left top;
+  background: url(coin.png) no-repeat left top;
 }
 .feature-inner#clock {
-  background: url(img/clock.png) no-repeat left top;
+  background: url(clock.png) no-repeat left top;
 }
-
-
 /*-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_*/
-
 .footer {
   background: #fff300d9;
   margin: 0;
@@ -260,4 +254,3 @@ body {
   padding: 20px 5px 0px 0px;
   margin: 0;
 }
-
