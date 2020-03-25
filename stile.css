@@ -1,5 +1,6 @@
 body {
   background: #111;
+  width: 500px
   margin: 0px;
   padding: 0;
   color: #eee;
@@ -7,7 +8,7 @@ body {
 .header {
   background: #fff355d9;
   padding: 8px 0px 3px 0px;
-  width: 1080px;
+  width: 100%;
   top: 0; left: 0; right: 0;
   display: flex;
   justify-content: space-between;
