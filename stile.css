@@ -1,5 +1,4 @@
 body {
-  width: 820px;
   background: #111;
   margin: 0px;
   padding: 0;
@@ -8,7 +7,7 @@ body {
 .header {
   background: #fff300d9;
   padding: 8px 0px 3px 0px;
-  width: 100%;
+  width: 1080px;
   top: 0; left: 0; right: 0;
   display: flex;
   justify-content: space-between;
