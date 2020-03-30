@@ -1,0 +1,98 @@
+@media screen and (min-width: 480px) {
+.header {
+  background: linear-gradient(20deg, transparent 50%, #6fe0fd 50%, #6fe0fd 60%, #00ffaa 90%);
+}
+.slogan {
+  left: 35%;
+  font-size: 31px;
+}
+.rubi {
+  margin-top: 3%;
+  margin-left: 23%;
+  font-size: 80px;
+}
+.arrow-wrapper {
+  z-index: 10;
+  top: 165px; left: 10px;
+  transform: rotate(0deg);
+  transition-duration: .8s;
+}
+.wrapper_move {
+  left: 300px;
+  transition-duration: 1s;
+}
+.arrow, .arrow:before, .arrow:after {
+  background: #fafafa;
+}
+.arrow_flip { transition-duration: 1s; }
+.menu{
+  background: linear-gradient(20deg, #6fe0fd 43%, transparent 43%);
+  padding-top: 84.2px;
+  padding-left: 15px;
+  top: 0px; left: -320px;
+  transition-duration: 1s;
+}
+.menu_active {
+  left: 0px;
+  transition-duration: 1s;
+}
+.menu p { font-size: 25px; width: 52px; }
+.menu a { font-size: 20px; }
+.news { margin-top: 200px; }
+.news-wrap p { font-size: 20px; }
+.leftop, .rightom { width: 70%; }
+.rightop, .leftom { width: 60%; }
+.leftop {
+  background: linear-gradient(170deg, #6fe0fdf0 38%, transparent 44%);
+}
+.rightop {
+  top: 0px;
+  right: 20%;
+  background: linear-gradient(-10deg, #00ffaabb 47%, transparent 52%);
+  box-shadow: #00ffaa88 2px 1px 2px;
+}
+.leftom {
+  margin-left: 20%;
+  box-shadow: #00ffaa88 -2px -1px 2px;
+  background: linear-gradient(170deg, #00ffaabb 47%, transparent 52%);
+}
+.rightom {
+  background: linear-gradient(-10deg, #6fe0fdf0 38%, transparent 44%);
+}
+.rightop .arright {
+  margin-top: 25px;
+}
+.features-wrap p {
+  font-size: 25px;
+}
+.fleftop p { top: 80px; left: 145px; }
+.frightop p { top: 100px; right: 160px; }
+.frightom p { right: 165px; }
+.fleftom p { top: 110px; left: 155px; }
+.lt { top: 30px; left: 30px; }
+.rt { top: 115px; right: 30px; }
+.rb { right: 30px; top: 30px; }
+.lb { bottom: 30px; left: 30px; }
+.footer {
+  padding: 20px 10px 30px 0;
+  align-items: center;
+  background: linear-gradient(20deg, #00ffaa 10%, #6fe0fd 30%, #00ffaa 55%, #6fe0fd 75%, #00ffaa 100%);
+}
+.contact {
+  margin: 0;
+  margin-top: 10px;
+  background: transparent;
+  font-size: 25px;
+}
+.emails {
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  font-size: 20px;
+}
+#al, #ad, #good {
+  background: transparent;
+  transform: rotate(20deg);
+}
+}
