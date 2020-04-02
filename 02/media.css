@@ -37,7 +37,7 @@
         margin-top: 57px;
     }
     .slogan { top: 55px; left: 19%; }
-    .menu { padding-top: 110px; top: 12px; }
+    .menu { padding-top: 110.4px; top: 12px; }
     .arrow-wrapper { left: 65%; }
 }
 @media screen and (max-width: 455px) {
@@ -127,7 +127,7 @@
     }
     .menu {
         background: linear-gradient(20deg, #6fe0fd 29%, transparent 33%);
-        padding-top: 85px;
+        padding-top: 85.4px;
         padding-left: 20px;
         top: 0; left: 0;
         transition-duration: .6s
@@ -211,7 +211,7 @@
     }
     .menu {
         background: linear-gradient(20deg, #6fe0fd 29%, transparent 33%);
-        padding-top: 46px;
+        padding-top: 46.4px;
         padding-left: 20px;
         top: 0; left: 0;
         transition-duration: .6s
