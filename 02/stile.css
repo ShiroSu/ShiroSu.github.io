@@ -53,7 +53,7 @@ body {
   transform: rotate(20deg);
 }
 .menu {
-  padding: 122px 10px 2px 10px;
+  padding: 122.4px 10px 2px 10px;
   background: linear-gradient(20deg, #6fe0fd 33%, transparent 36%);
   width: 100%;
   position: absolute;
