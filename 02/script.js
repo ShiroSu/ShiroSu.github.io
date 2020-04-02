@@ -4,6 +4,8 @@ window.onload=function() {
   let menu=document.querySelector(".menu");
   let toggle=true;
   let width=document.body.clientWidth;
+  let max_width=window.screen.width;
+  alert(width+"\n"+max_width);
   let contact=document.querySelector(".contact");
   if (width<320) {
     contact.innerHTML="Contacts";
