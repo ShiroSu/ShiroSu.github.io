@@ -1,0 +1,298 @@
+body {
+  color: #999;
+  font-family: "Comic Neue";
+  padding: 0;
+  margin: 0;
+  background: #fafafa;
+  border-collapse: collapse;
+}
+* {
+  box-sizing: border-box;
+}
+.header {
+  background: linear-gradient(20deg, transparent 54%, #6fe0fd 57%, #6fe0fd 60%, #00ffaa 90%);
+  border-bottom: 0px solid #111;
+  height: 217.5px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.unselectable {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.slogan {
+  position: absolute;
+  top: 0;
+  color: #fafafa;
+  border: 0px solid transparent;
+  border-radius: 50px;
+  top: 60px;
+  left: 33%;
+  font-family: "Indie Flower";
+  font-size: 28px;
+  transform: rotate(20deg);
+}
+.slogan h3 {
+  margin: 0;
+  padding: 0;
+}
+.rubi {
+  font-family: "Indie Flower";
+  color: #bababa;
+  background: transparent;
+  text-shadow: #bbb -2px 2px 5px;
+  width: 100px;
+  font-size: 70px;
+  margin-left: 21%;
+  margin-top: 43px;
+  transform: rotate(20deg);
+}
+.menu {
+  padding: 122px 10px 2px 10px;
+  background: linear-gradient(20deg, #6fe0fd 33%, transparent 36%);
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 00px;
+  font-family: "Baloo Chettan 2";
+  transition-duration: 1s;
+}
+.menu_active {
+  left: 0;
+  transition-duration: 1s;
+}
+.menu p {
+  font-size: 20px;
+  color: #fafafa;
+  width: 42px;
+  border-bottom: 1px solid #fafafa;
+}
+.menu a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #fafafa;
+  font-family: "Baloo Chettan 2";
+  margin: 0 15px;
+  transition-duration: .5s;
+}
+.menu a:hover {
+  color: #dadada;
+  transition-duration: .8s;
+}
+.arrow-wrapper {
+  display: block;
+  transform: rotate(20deg);
+  height: 60px;
+  position: absolute;
+  background: transparent;
+  top: 170px;
+  left: 66%;
+  transition-duration: 500ms;
+}
+.arrow {
+  width: 70px;
+  height: 2px;
+  margin-top: 20px;
+  background: #bababa;
+  position: relative;
+  transition-duration: 1.5s;
+}
+.arrow:before, .arrow:after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: -0.5px;
+  width: 20px;
+  height: 2px;
+  margin: 0;
+  background: #bababa;
+  transition-timing-function: linear;
+  transition-duration: 100ms;
+}
+.arrow:before {
+  top: -4.2px;
+  transform: rotate(25deg);
+}
+.arrow:after {
+  top: 4.8px;
+  transform: rotate(-25deg);
+}
+.arrow_flip {
+  transition-timing-function: ease-out;
+  transform: rotateY(-180deg);
+  transition-duration: 1s;
+}
+.arrow_flip:before {
+  top: -4.5px;
+  transform: rotate(25deg);
+}
+.arrow_flip:after {
+  top: 4.5px;
+  transform: rotate(-25deg);
+}
+
+/*-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-__-*/
+
+.news {
+  margin-top: 217.5px;
+}
+.title {
+  padding-top: 8px;
+  padding-left: 15px;
+  margin: 0;
+  line-height: .8em;
+  border-top: 2px solid #bababa;
+  border-bottom: 2px solid #bababa;
+  color: #999;
+  font-family: "Baloo Chettan 2";
+  font-size: 30px;
+  font-weight: 400;
+}
+.news-wrap {
+  background: linear-gradient(175deg, #6fe0fd 23%, transparent 25%, transparent 32%, #00FFAA 34%, #00ffaa 67%, transparent 69%, transparent 75%, #6fe0fd 77%);
+  padding: 0 10%;
+  margin-top: 0;
+  position: relative;
+  transition-duration: 1.8s;
+}
+.news-wrap p {
+  padding: 0px 10px;
+  margin: 0;
+  line-height: 1.6em;
+}
+/*#6fe0fd      #00ffaa*/
+.news-item {
+  height: 90px;
+}
+.leftop {
+  background: linear-gradient(170deg, #6fe0fdf0 40%, transparent 46%);
+}
+.rightop {
+  width: 100%;
+  top: 0; right: 0;
+  border-bottom: 1px solid #00ffaa55;
+  background: linear-gradient(170deg, transparent 52%, #00ffaabb 57%);
+}
+.leftom {
+  width: 100%;
+  background: linear-gradient(170deg, #00ffaabb 43%, transparent 48%);
+}
+.rightom {
+  top: 90px; right: 0;
+  width: 100%;
+  background: linear-gradient(170deg, transparent 54%, #6fe0fdf0 60%);
+}
+.rightop p, .rightom p {
+  direction: rtl;
+}
+.arrleft {
+  margin-left: 10px;
+  margin-bottom: 34px;
+  transform: rotateY(180deg);
+}
+.arright {
+  margin-top: 34px;
+  margin-left: 95%;
+  transform: rotateX(180deg);
+}
+
+/*-_-_-_-_-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-_-_-*/
+
+.ico {
+  display: inline;
+  position: absolute;
+}
+.features-wrap {
+  position: relative;
+  transition-duration: .5s;
+}
+.features-inner {
+  position: absolute;
+  font-size: 22px;
+  transform: rotate(-30deg);
+}
+.features-item {
+  position: relative;
+  height: 180px;
+}
+.fleftop {
+  background: linear-gradient(150deg, #6fe0fd 20%, transparent 45%);
+}
+.frightop {
+  width: 100%;
+  margin-top: -180px;
+  background: linear-gradient(150deg, transparent 50%, #00ffaa 73%);
+}
+.frightom {
+  background: linear-gradient(-150deg, #00ffaa 27%, transparent 50%);
+}
+.fleftom {
+  width: 100%;
+  margin-top: -180px;
+  background: linear-gradient(-150deg, transparent 55%, #6fe0fd 80%);
+}
+.fleftop p {
+  top: 60px; left: 100px;
+}
+.frightop p {
+  top: 70px;
+  right: 140px;
+}
+.frightom p {
+  top: 65px;
+  right: 110px;
+  transform: rotate(30deg);
+}
+.fleftom p {
+  bottom: 55px; left: 130px;
+  transform: rotate(30deg);
+}
+.lt { top: 30px; left: 0px; }
+.rt { bottom: 40px; right: 0px; }
+.rb { top: 40px; right: 0px; }
+.lb { bottom: 30px; left: 0px; }
+
+/*--_-_-_-_-_-_-_-_-_-_-__-_-_-_-_-_-_-_-_-_-_-_*/
+
+.footer {
+  border-top: 2px solid #bababa;
+  display: flex;
+  padding: 20px 10px 30px 0;
+  align-items: center;
+  background: linear-gradient(30deg, #00ffaa 14%, #6FE0FD 33%, #6fe0fd 52%, transparent 80%, transparent 87%, #00ffaa 100%);
+  transition-duration: .8s;
+}
+.contact {
+  display: inline;
+  padding: 5px 10px;
+  font-size: 20px;
+  box-sizing: border-box;
+  border-radius: 30px;
+  margin-right: 10px;
+  background: transparent;
+}
+.emails {
+  padding-top: 8px;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  transition-duration: .5s;
+}
+.emails p {
+  border-radius: 100px;
+  padding: 2px;
+  margin: 5px -15px;
+  font-size: 14px;
+}
+#al, #ad, #good {
+  background: transparent;
+  transform: rotate(30deg);
+  transition-duration: .5s;
+}
