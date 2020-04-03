@@ -292,6 +292,26 @@
         width: 19vw;
     }
 }
+@media screen and (min-width: 920px) {
+    #clock {
+        padding-top: 19px;
+    }
+}
+@media screen and (min-width: 1017px) {
+    #creative {
+        padding-top: 19px;
+    }
+}
+@media screen and (min-width: 1020px) {
+    #coin {
+        padding-top: 19px;
+    }
+}
+@media screen and (min-width: 1147px) {
+    #responsible {
+        padding-top: 19px;
+    }
+}
 @media screen and (min-width: 1196px) {
     .rubi {
         margin-left: 90px;
