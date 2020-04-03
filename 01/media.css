@@ -1,0 +1,121 @@
+/* 410 */
+@media screen and (max-width: 410px) {
+    .rubi {
+        margin: 8px;
+    }
+    .left_menu {
+        left: 0;
+        position: static;
+        animation: none;
+    }
+    .ico {
+        top: 3px;
+        left: -67.5px;
+        animation: none;
+    }
+    .ico_active {
+        left: -67.5px;
+        animation: ico_activate 1s forwards;
+    }
+    .inner-left {
+        left: 80px;
+        color: #111;
+    }
+    .ico-inner_active:after {
+        background: #fff300d9;
+        animation-delay: .8s;
+    }
+    .animate_ico {
+        animation: ico_drag 1s infinite forwards;
+    }
+    @keyframes ico_drag {
+        from { left: -67.5px; }
+        50% { left: -70.5px; }
+        to { left: -67.5px; }
+    }
+    @keyframes ico_activate {
+        from { left: -67.5px; }
+        50% { left: -200.5px; }
+        to { left: -67.5px; }
+    }
+    .menu_list {
+        padding: 30px 10px 10px 70px;
+        left: -100%;
+        box-sizing: border-box;
+        width: 99%;
+    }
+    .menu_list li {
+        display: inline;
+        margin: 0 5px;
+    }
+    .left_menu_active ul {
+        margin-top: 0;
+        display: flex;
+        justify-content: space-between;
+        transition-delay: .6s;
+    }
+    .news {
+        margin-top: 30px;
+        transition-delay: .3s;
+    }
+    .news h2 {
+        padding-left: 55px;
+        transition-duration: .3s;
+    }
+    .news_active {
+        margin-top: 80px;
+        padding-left: 0;
+    }
+    .news_active h2 {
+        padding-left: 25px;
+        transition-duration: .3s;
+    }
+    .feature {
+        display: block;
+        margin: 10px auto;
+        width: 250px;
+        height: 150px;
+    }
+    .feature-inner {
+        padding-top: 19px;
+    }
+}
+@media screen and (max-width: 380px) {
+    .rubi {
+        top: 47px;
+        right: -41px;
+        padding: 0;
+        margin: 0;
+        font-size: 35px;
+        /* transform-origin: right; */
+        transform: rotate(-90deg);
+    }
+    .slogan {
+        position: absolute;
+        margin-top: 0px;
+        margin-left: 10px;
+        padding: 10px 0px;
+        width: 80%;
+    }
+}
+@media screen and (max-width: 360px) {
+    .domen {
+        font-size: 15px;
+        padding-top: 58px;
+        transform: rotate(90deg);
+    }
+}
+@media screen and (max-width: 315px) {
+    .slogan {
+        margin-top: -5px;
+    }
+    .menu_list {
+        padding-left: 35px;
+    }
+}
+@media screen and (min-width: 451px) {
+    .features-wrap {
+      display: flex;
+      justify-content: space-evenly;
+    }
+}
