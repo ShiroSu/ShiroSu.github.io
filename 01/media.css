@@ -113,10 +113,38 @@
     .menu_list {
         padding-left: 35px;
     }
+    .domen {
+        padding: 0;
+        margin-left: -56px;
+    }
+}
+@media screen and (max-width: 290px) {
+    .slogan {
+        margin-left: 13px;
+        width: 57%;
+    }
+    .menu_list {
+        font-size: 15px;
+    }
+    .feature {
+        width: 210px;
+        height: 110px;
+        padding-top: 20px;
+    }
+    .feature-inner#responsible {
+        padding-top: 7px;
+    }
+    .footer {
+        padding-left: 10px;
+    }
+    .contact {
+        font-size: 18px;
+        margin-right: 7px;
+    }
 }
 @media screen and (min-width: 451px) {
     .features-wrap {
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-between;
     }
 }
