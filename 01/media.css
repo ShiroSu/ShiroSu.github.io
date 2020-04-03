@@ -233,3 +233,77 @@
         padding-left: 0;
     }
 }
+@media screen and (min-width: 791px) {
+    .header {
+        padding-bottom: 0;
+    }
+    .rubi {
+        margin: 0px 30px 10px 50px;
+        font-size: 100px;
+        transition-duration: .7s;
+    }
+    .slogan {
+        font-size: 35px;
+    }
+    .ico {
+        display: none;
+    }
+    .left_menu, .menu_list {
+        left: 0;
+        border: none;
+        animation: none;
+    }
+    .menu_list {
+        padding-top: 55px;
+    }
+    #main, .menu_list li {
+        display: inline;
+        font-size: 24px;
+        color: #111;
+        cursor: default;
+        margin: 0 10px;
+    }
+    .menu_list a{
+        color: #111;
+    }
+    #main::after {
+        content: "";
+        display: block;
+        background: #111;
+        height: 2px;
+        width: 50px;
+    }
+    .left_menu ul {
+        display: flex;
+        margin-top: 0;
+    }
+    .news p {
+        font-size: 20px;
+    }
+    .features-wrap {
+        display: flex;
+        justify-content: space-evenly;
+        padding-bottom: 15px;
+    }
+    .feature-raw {
+        display: flex;
+    }
+    .feature {
+        width: 19vw;
+    }
+}
+@media screen and (min-width: 1196px) {
+    .rubi {
+        margin-left: 90px;
+        font-size: 65px;
+        transition-duration: .7s;
+    }
+    .menu_list {
+        padding-top: 30px;
+    }
+}
+
+
+
+
+
