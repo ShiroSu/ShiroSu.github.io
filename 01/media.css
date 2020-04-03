@@ -9,6 +9,7 @@
         animation: none;
     }
     .ico {
+        z-index: 5;
         top: 3px;
         left: -67.5px;
         animation: none;
