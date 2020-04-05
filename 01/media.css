@@ -32,6 +32,7 @@
 }
 @media screen and (max-width: 290px){
 .slogan{margin-left: 13px;width: 57%;}
+.left_menu_active ul{margin-top: 3px;padding-top: 32px;transition-delay: .5s;}
 .menu_list{font-size: 15px;}
 .feature{width: 210px;height: 110px;padding-top: 20px;}
 .feature-inner#responsible{padding-top: 7px;}
