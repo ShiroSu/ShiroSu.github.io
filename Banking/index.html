@@ -6,6 +6,7 @@
     <title>RUBigBank</title>
   <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2|Kaushan+Script|Comic+Neue:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="stile.css">
+  <link rel="stylesheet" href="media.css">
     <script src="script.js"></script>
 </head>
 <body>
@@ -19,6 +20,7 @@
             </div>
     </header>
     <section class="sectione features">
+        <div class="feature-wrap">
         <div class="features-inner">
             <h2 class="ftitle"><span>RUBigBank</span> is here</h2>
             <div class="fitem_wrap fitem_active" id="place">
@@ -39,9 +41,10 @@
             <div class="navi" id="t"></div>
             <div class="navi" id="b"></div>
         </div>
-        <img src="house.jpg" alt="" class="house img img_active">
-        <img src="travel.png" alt="" class="travel img">
-        <img src="business.png" alt="" class="business img">
+        <img src="house.jpg" alt="" class="unselectable house img img_active">
+        <img src="travel.png" alt="" class="unselectable travel img">
+        <img src="business.png" alt="" class="unselectable business img">
+    </div>
     </section>
     <section class="sectione stuffs">
         <div class="exchange">
@@ -69,14 +72,14 @@
             </div>
             <div class="stuffs_item convert">
                 <h2 class="title">Converter</h2>
-                <button class="mess">I buy</button>
+                <button class="btn">I buy</button>
                 <div class="process">
                     <input type="text" class="input" placeholder="0.00" maxlength="10">
-                    <ul class="result b">
-                        <li><p class="cob" id="cousd"></p><p class="cur" id="usd">USD</p></li>
-                        <li><p class="cob" id="coeur"></p><p class="cur" id="eur">EUR</p></li>
-                        <li><p class="cob" id="cogbp"></p><p class="cur" id="gbp">GBP</p></li>
-                        <li><p class="cob" id="corub"></p><p class="cur" id="rub">RUB</p></li>
+                    <ul class="result">
+                        <li><p class="cor" id="cousd"></p><p class="cur" id="usd">USD</p></li>
+                        <li><p class="cor" id="coeur"></p><p class="cur" id="eur">EUR</p></li>
+                        <li><p class="cor" id="cogbp"></p><p class="cur" id="gbp">GBP</p></li>
+                        <li><p class="cor" id="corub"></p><p class="cur" id="rub">RUB</p></li>
                     </ul>
                 </div>
             </div>
@@ -84,19 +87,27 @@
         <div class="stuffs_item news">
             <h2 class="title">News</h2>
             <div class="log">
-                <p>In fact we have not opened yet...</p>
-                <p>So we cannot have any news a priori</p>
-                <p>But it does not prevent us from icluding a section with news</p>
-                <p>It's a necessary to have one on web-site</p>
-                <p>So we did it as well and we'll do it again!..</p>
+                <ul>
+                    <li><p>In fact we have not opened yet...</p></li>
+                    <li><p>So we cannot have any news a priori</p></li>
+                    <li><p>But it does not prevent us from icluding a section with news</p></li>
+                    <li><p>It's a necessary to have one on web-site</p></li>
+                    <li><p>So we did it as well and henceforth we'll do it over and over again!..</p></li>
+                </ul>
             </div>
         </div>
     </section>
     <footer class="footer">
         <h3 class="contact">Contacts:</h3>
-        <span id="al">alizadeh.ja217@gmail.com</span>
-        <span id="ru">rubicon1140@gmail.com</span>
-        <span id="ad">adigezalov0400@gmail.com</span>
+        <span id="al">
+            <a href="mailto:alizadeh.ja217@gmail.com">alizadeh.ja217</a><a href="mailto:alizadeh.ja217@gmail.com" id="g">@gmail.com</a>
+        </span>
+        <span id="ru">
+            <a href="mailto:rubicon1140@gmail.com">rubicon1140</a><a href="mailto:rubicon1140@gmail.com" id="g">@gmail.com</a>
+        </span>
+        <span id="ad">
+            <a href="mailto:adigezalov0400@gmail.com">adigezalov0400</a><a href="mailto:adigezalov0400@gmail.com" id="g">@gmail.com</a>
+        </span>
     </footer>
 </body>
 </html>

@@ -37,7 +37,6 @@ body {
 .menu a {
     color: #eeee;
     text-decoration: none;
-    /* border: 1px solid #eeea; */
     border-radius: 10px;
     font-family: "Baloo Chettan 2", sans-serif;
     font-size: 18px;
@@ -49,7 +48,6 @@ body {
 .menu a:hover {
     background: #eee2;
     color: #cccd;
-    /* text-decoration: underline; */
     transition-duration: .3s;
 }
 .menu a:after {
@@ -67,8 +65,9 @@ body {
 .menu a:hover:after { transition-duration: .8s; }
 
 .sectione {
-    height: auto;
-    margin: 30px 130px;
+    width: 1100px;
+    margin: 30px auto;
+    transition-duration: .5s;
 }
 .features {
     height: 550px;
@@ -101,6 +100,7 @@ body {
     font-weight: 700;
 }
 .fitem {
+    z-index: 0;
     margin-top: 80px;
     text-align: center;
 }
@@ -112,6 +112,7 @@ body {
 }
 .fitem_active {
     display: block;
+    z-index: 1;
     color: #0b1023;
     left: 0px;
     transition-delay: .5s;
@@ -167,11 +168,13 @@ body {
 }
 .img {
     position: absolute;
+    opacity: 0;
     transform: rotateY(90deg);
     transition-duration: .8s;
 }
 .img_active {
     transform: rotateY(0deg);
+    opacity: 1;
     transition-timing-function: ease-in;
     transition-delay: .8s;
     transition-duration: .8s;
@@ -180,16 +183,19 @@ body {
     width: 400px;
     padding: 120px 0 90px 0;
     right: 50px;
+    transition-duration: .3s;
 }
 .travel {
     height: 400px;
     margin-top: 50px;
     right: 0px;
+    transition-duration: .3s;
 }
 .business {
     width: 400px;
     right: 50px;
     padding: 100px 0;
+    transition-duration: .3s;
 }
 
 .stuffs {
@@ -233,18 +239,6 @@ body {
     position: relative;
     font-size: 20px;
 }
-.mess {
-    position: absolute;
-    font-size: 18px;
-    font-family: inherit;
-    font-weight: 700;
-    padding: 10px 15px;
-    background-color: #ccf;
-    border-radius: 50px;
-    bottom: 50px;
-    left: 50px;
-    outline: none;
-}
 .process {
     display: flex;
     justify-content: space-between;
@@ -258,6 +252,18 @@ body {
     padding: 5px;
     outline: none;
     background-color: #ccc9;
+}
+.btn {
+    position: absolute;
+    font-size: 18px;
+    font-family: inherit;
+    font-weight: 700;
+    padding: 10px 15px;
+    background-color: #ccf;
+    border-radius: 50px;
+    bottom: 50px;
+    left: 50px;
+    outline: none;
 }
 .result:before {
     position: absolute;
@@ -286,7 +292,7 @@ body {
     padding-bottom: 8px;
     width: 10px;
 }
-.cob {
+.cor {
     margin-right: 0px;
     padding-top: 3px;
     align-self: start;
@@ -298,7 +304,7 @@ body {
     z-index: 10;
 }
 
-.cob:hover {
+.cor:hover {
     overflow: visible;
 }
 .cur {
@@ -332,4 +338,26 @@ body {
 }
 .footer span {
     padding: 0px 15px;
+    display: inline-block;
+    border-right: 1px solid;
 }
+#ad { border: none; }
+.footer a {
+    padding: 0;
+    margin: 0;
+    color: #eeee;
+    text-decoration: none;
+    font-size: 16px;
+}
+.footer span:after {
+    content: "";
+    background: #cccd;
+    width: 0;
+    height: 2px;
+    display: block;
+    transition-duration: .3s;
+}
+#al:hover:after { width: 174px; }
+#ru:hover:after { width: 164px; }
+#ad:hover:after { width: 190px; }
+.footer span:hover:after { transition-duration: .8s; }
