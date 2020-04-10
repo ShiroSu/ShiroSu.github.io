@@ -98,7 +98,16 @@
         transition-duration: 1s;
     }
     .img_out {
-        left: 220px; opacity: 0;
+        animation: imganim .7s forwards;
+    }
+    @keyframes imganim {
+        0% {
+            left: 0;
+        }
+        80% {
+            left: 220px;
+            height: inherit;
+        }
     }
     .house {
         padding: 185px 0 0px 0;
