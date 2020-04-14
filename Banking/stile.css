@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    owerflow: hidden;
+    overflow-x: hidden;
     box-sizing: content-box;
     color: #0b1023;
     font-family: "Comic Neue", cursive;
