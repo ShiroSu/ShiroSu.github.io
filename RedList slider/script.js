@@ -1,11 +1,17 @@
 function init() {
+
+    // console.log(document.documentElement.scrollHeight, window.innerHeight, window.pageYOffset);
+    // document.addEventListener("click", )
+
+    // let pos=window.pageYOffset, height=window.innerHeight;
     let carousel = document.querySelector(".carousel"),
     cont=document.querySelector(".carousel-control"),
     menuInner=document.querySelectorAll(".menu-inner"),
     cubes=document.querySelectorAll(".cube"),
     arrowrap=document.querySelectorAll(".arrowrap"),
     panelCount = carousel.children.length,
-    theta = 0, inn=0, it=0, rotX=0, rotY=0, rotZ=0
+    theta = 0, inn=0, it=0, rotX=0, rotY=0, rotZ=0,
+    x=[1, 7, -4, -4, 7], z=[0, -23, -3, 3, 23],
     transforms=[
         "translateZ(150px)",
         "rotateY(90deg) translateZ(150px)",
@@ -23,6 +29,30 @@ function init() {
     cont.children[1].addEventListener("click", ()=>round("back"));
 
     console.log("index: "+(inn*6+it));
+    
+    document.addEventListener("keydown", (e)=> {
+        if (e.ctrlKey) {
+        info.children[inn*6+it].classList.remove("info_active");
+            switch (e.keyCode) {
+                case 37: if (rotX%2==0 || rotX%2==-0) rotY++; else rotZ++; break;
+                case 38 && 87: rotX--; break;
+                case 39: if (rotX%2==0 || rotX%2==-0) rotY--; else rotZ--; break;
+                case 40: rotX++; break;
+            }
+            console.log("first:\nrotX: "+rotX, "\nrotY: "+rotY, "\nrotZ: "+rotZ, "\nit: "+it);
+            cube_spin(rotX, rotY, rotZ);
+            info.children[inn*6+it].classList.add("info_active");
+            console.log("index: "+(inn*6+it));
+        }
+        else {
+            switch (e.keyCode) {
+                case 37: round("back"); break;
+                case 39: round("forward"); break;
+                case 96: round("reset"); break;
+            }
+        }
+    });
+
     arrowrap.forEach((item)=> {
         item.addEventListener("click", ()=> {
             info.children[inn*6+it].classList.remove("info_active");
@@ -36,6 +66,7 @@ function init() {
             console.log("index: "+(inn*6+it));
         });
     });
+
     
     
     function round(eve="") {
@@ -46,6 +77,7 @@ function init() {
         switch (eve) {
             case "forward": theta-=72; inn=(inn+1)%panelCount; break;
             case "back": theta+=72; inn=(inn>0)?(inn-1):panelCount-1; break;
+            case "reset": theta=0; inn=0; break;
         }
         anime({
                 targets: carousel,
@@ -61,8 +93,8 @@ function init() {
 
     function carousel_sort(inn) {
         for (i=0; i<menuInner.length; i++) {
-            menuInner[i].style.transform=`rotateY(${i*72}deg) translateZ(498px)`;
-            if (i==inn) menuInner[i].style.transform=`rotateY(${i*72}deg) scale(1.5) translateZ(498px)`;
+            menuInner[i].style.transform=`rotate3D(${x[i]}, 0, ${z[i]}, -3deg) rotateY(${i*72}deg) translateZ(498px)`;
+            if (i==inn) menuInner[i].style.transform=`rotate3D(${x[i]}, 0, ${z[i]}, -3deg) rotateY(${i*72}deg) scale(1.5) translateZ(498px)`;
         }
     }
 
@@ -74,7 +106,17 @@ function init() {
         if (rotX%4==0 || rotX%4==-0) {
             if (rotY%4==0 || rotY%4==-0) {
                 if (rotZ%4==0 || rotZ%4==-0) it=0;
-                else if (rotZ%4==1 || rotZ%4==-1) tran=item(0, 270);
+                else if (rotZ%4==1 || rotZ%4==-3) tran=item(0, 270);
+                else if (rotZ%4==3 || rotZ%4==-1) tran=item(0, 90);
+            }
+            else if (rotY%4==1 || rotY%4==-3) {
+                if (rotZ%4==0 || rotZ%4==-0) it=4;
+            }
+            else if (rotY%4==2 || rotY%4==-2) {
+                if (rotZ%4==0 || rotZ%4==-0) it=3;
+            }
+            else if (rotY%4==3 || rotY%4==-1) {
+                if (rotZ%4==0 || rotZ%4==-0) it=1;
             }
         }
         else if (rotX%4==1 || rotX%4==-3) {
@@ -85,6 +127,9 @@ function init() {
                 else if (rotZ%4==2 || rotZ%4==-2) tran=item(2, 180);
                 else if (rotZ%4==3 || rotZ%4==-1) tran=item(4, 90);
             }
+            else if (rotY%4==1 || rotY%4==-3) {
+                if (rotZ%4==0 || rotZ%4==-0) tran=item(5, 270);
+            }
             else if (rotY%4==3 || rotY%4==-1) {
                 if (rotZ%4==0 || rotZ%4==-0) tran=item(5, 90);
             }
@@ -93,20 +138,27 @@ function init() {
             if (it==0 || it==1 || it==3 || it==4) rotY*=-1;
             if (rotY%4==0 || rotY%4==-0) {
                 if (rotZ%4==0 || rotZ%4==-0) tran=item(3, 180);
+                else if (rotZ%4==2 || rotZ%4==-2) it=3;
+                else if (rotZ%4==3 || rotZ%4==-1) tran=item(3, 90);
             }
             else if (rotY%4==1 || rotY%4==-3) {
                 if (rotZ%4==0 || rotZ%4==-0) tran=item(1, 180);
+                else if (rotZ%4==2 || rotZ%4==-2) it=4;
+                else if (rotZ%4==3 || rotZ%4==-1) tran=item(5, 270);
             }
             else if (rotY%4==2 || rotY%4==-2) {
                 if (rotZ%4==0 || rotZ%4==-0) tran=item(0, 180);
+                else if (rotZ%4==2 || rotZ%4==-2) it=0;
             }
             else if (rotY%4==3 || rotY%4==-1) {
                 if (rotZ%4==0 || rotZ%4==-0) tran=item(4, 180);
+                else if (rotZ%4==2 || rotZ%4==-2) it=1;
             }
         }
         else if (rotX%4==3 || rotX%4==-1) {
             if (rotY%4==0 || rotY%4==-0) {
-                if (rotZ%4==1 || rotZ%4==-3) tran=item(4, 270);
+                if (rotZ%4==0 || rotZ%4==-0) it=2;
+                else if (rotZ%4==1 || rotZ%4==-3) tran=item(4, 270);
                 else if (rotZ%4==2 || rotZ%4==-2) tran=item(5, 180);
                 else if (rotZ%4==3 || rotZ%4==-1) tran=item(1, 90);
             }
@@ -128,3 +180,6 @@ function init() {
     }
 }
 window.onload=init;
+
+
+//7,0,-23  -4,0,-3   -4,0,3   7,0,23
