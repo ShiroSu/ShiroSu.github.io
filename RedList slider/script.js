@@ -63,7 +63,8 @@ function init() {
             console.log("first:\nrotX: "+rotX, "\nrotY: "+rotY, "\nrotZ: "+rotZ, "\nit: "+it);
             cube_spin(rotX, rotY, rotZ);
             info.children[inn*6+it].classList.add("info_active");
-            console.log("index: "+(inn*6+it));
+            // console.log("index: "+(inn*6+it));
+            // console.log("Go to "+item.getAttribute("id"))
         });
     });
 
@@ -137,7 +138,7 @@ function init() {
         else if (rotX%4==2 || rotX%4==-2) {
             if (it==0 || it==1 || it==3 || it==4) rotY*=-1;
             if (rotY%4==0 || rotY%4==-0) {
-                if (rotZ%4==0 || rotZ%4==-0) tran=item(3, 180);
+                if (rotZ%4==0 || rotZ%4==-0) document.querySelector("#dormouse img").style.transform="rotate(180deg)";
                 else if (rotZ%4==2 || rotZ%4==-2) it=3;
                 else if (rotZ%4==3 || rotZ%4==-1) tran=item(3, 90);
             }
@@ -182,4 +183,4 @@ function init() {
 window.onload=init;
 
 
-//7,0,-23  -4,0,-3   -4,0,3   7,0,23
+// tran=item(3, 180);
