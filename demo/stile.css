@@ -12,10 +12,10 @@ body {
 .instruction button {
     font-size: 15px;
 }
-.instruction p {
+.axes {
     display: none;
 }
-.instruction p.active {
+.axes.active {
     display: block;
 }
 span.green {
@@ -26,6 +26,9 @@ span.blue {
 }
 span.red {
     color: red;
+}
+.move {
+    font-size: 25px;
 }
 .unselectable {
   -moz-user-select: none;
