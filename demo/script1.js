@@ -4,7 +4,7 @@ window.onload=()=> {
     let pressed=[0, 0, 0, 0];
     
     document.querySelector("button").onclick=()=> {
-        document.querySelector(".instruction p").classList.toggle("active");
+        document.querySelector(".axes").classList.toggle("active");
         document.querySelectorAll(".O").forEach((item)=> item.classList.toggle("active"));
     }
     
