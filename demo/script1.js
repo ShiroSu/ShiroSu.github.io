@@ -26,13 +26,24 @@ window.onload=()=> {
     });
 
     cube.addEventListener("mousedown", (e)=> {
-        tog=1; pointX=e.clientX; pointY=e.clientY;
+        tog=1;
         document.addEventListener("mousemove", (e)=> {
-            handy(e);
+            handy(e, "m");
         });
     });
     document.addEventListener("mouseup", (e)=> {
-        tog=0; handy(e);
+        tog=0; handy(e, "m");
+    });
+
+    cube.addEventListener("touchstart", (e)=> {
+        tog=1; pointX=e.changedTouches[0].clientX; pointY=e.changedTouches[0].clientY;
+        document.addEventListener("touchmove", (e)=> {
+            handy(e, "t");
+        });
+    });
+    document.addEventListener("touchend", (e)=> {
+        tog=0; handy(e, "t");
+        // console.log(e.changedTouches[0].clientY)
     });
 
     function spin() {
@@ -49,8 +60,9 @@ window.onload=()=> {
         });
         // document.getElementsByTagName("p")[0].innerHTML="We go "+comm;
     }
-    function handy(e) {
-        let posX=e.movementX; posY=e.movementY;
+    function handy(e, type="") {
+        let posX=e.movementX, posY=e.movementY;
+        if (type=="t") { posX=e.changedTouches[0].clientX-pointX; posY=e.changedTouches[0].clientY-pointY; }
         if (tog==1) {
             if (posX<-3) { if (posX<-6) rotY+=posX/6; else rotY+=posX/1; }
             else if (posX>3) { if (posX>6) rotY+=posX/6; else rotY+=posX/1; }
@@ -59,6 +71,7 @@ window.onload=()=> {
             console.log(e.movementX, tog);
         }
         else rotX+=0; rotY+=0;
+        if (type=="t") { pointX=e.changedTouches[0].clientX; pointY=e.changedTouches[0].clientY; }
         spin();
     }
 }
