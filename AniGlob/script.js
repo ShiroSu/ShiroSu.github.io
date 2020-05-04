@@ -65,5 +65,4 @@ function animate() {
     }
     renderer.render(scene, camera);
 }
-window.addEventListener("beforeunload", ()=> alert("dxgfchgvjkhkl"));
-init();
+window.onload=init;
