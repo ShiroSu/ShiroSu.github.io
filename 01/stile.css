@@ -37,5 +37,5 @@ body{background: #111;margin: 0px;padding: 0;color: #eee;}
 .footer{background: #fff300d9;margin: 0;padding: 5px 15px;color: #111;font-family: 'Baloo Chettan 2', sans-serif;font-size: 10px;display: flex;position: relative;}
 .contact{font-size: 20px;margin-right: 10px;}
 .emails{text-align: right;border-right: 1px solid #111;}
-.emails p{font-size: 14px;line-height: 0.6em;}
+.emails a{display: block;margin: 17px 0;color: #000;text-decoration: none;font-size: 14px;}
 .domen{font-size: 25px;display: block;padding: 20px 5px 0px 0px;margin: 0;}
