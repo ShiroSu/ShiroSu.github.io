@@ -1,0 +1,64 @@
+body, * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    overflow: hidden;
+    perspective: 3000px;
+}
+.preload {
+    position: absolute;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #101920;
+    transform-origin: bottom;
+    transform-style: preserve-3d;
+}
+.pre-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 8vh;
+    padding: 10px 35px;
+    background-color: slategray;
+    border: 2px solid #30363b;
+    box-shadow: inset 2px 2px 5px #111;
+    color: powderblue;
+    font-family: "Raleway";
+    transform-origin: left top;
+}
+.lock {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #30363b;
+    position: absolute;
+    top: 7px;
+}
+.lock.left {
+    left: 7px;
+}
+.lock.right {
+    right: 7px;
+}
+.ruby {
+    font-size: 100px;
+    font-weight: 600;
+    border-bottom: 2px solid powderblue;
+}
+.web {
+    font-size: 70px;
+    line-height: 1em;
+}
+
+.page {
+    transform-style: preserve-3d;
+    transform: translateZ(-580px);
+}
