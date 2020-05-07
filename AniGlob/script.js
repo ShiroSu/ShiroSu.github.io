@@ -2,6 +2,7 @@ let width=window.innerWidth, height=window.innerHeight,
 cvs=document.getElementById("cvs"),
 scene, camera, renderer, scroll, scroll_base, loader, materials;
 
+window.onbeforeunload=()=> { return closing(); }
 function init() {
     scene=new THREE.Scene();
     camera=new THREE.PerspectiveCamera(40, 228/height, 0.1, 1000);
@@ -37,7 +38,7 @@ clock=0, len=scrollInner.length, counter=0, dif=0,
 margin=[window.getComputedStyle(scroll_page).width.replace("px", "")];
 scroll_page.style.marginLeft=-margin+"px";
 for (i=0; i<len; i++) margin.unshift(0);
-for (i=0; i<scrollInner.length; i++) {
+for (i=0; i<len; i++) {
     if (i==0) margin[i]=margin[len]-window.getComputedStyle(scrollInner[i]).width.replace("px", "")-130;
     else margin[i]=margin[i-1]-window.getComputedStyle(scrollInner[i]).width.replace("px", "")-10;
 }
@@ -52,6 +53,25 @@ document.onclick=(e)=> {
         }
     });
 };
+var wDelta = 120, scroll_check=true;
+scrollInner.forEach((item, i)=> {
+    if (i!=len-1) {
+        item.addEventListener("mouseenter", ()=> scroll_check=false);
+        item.addEventListener("mouseleave", ()=> scroll_check=true);
+    }
+});
+function scrollDoc(e) {
+    if (scroll_check) {
+        if (!e) e = event;
+        if (e.preventDefault) { e.preventDefault(); } else { e.returnValue = false; }
+        var __delta = e.wheelDelta || -e.detail;
+        __delta /= Math.abs(__delta);
+        document.documentElement.scrollLeft -= __delta * wDelta; // FF, Opera, IE
+        if (this.attachEvent) return false;
+        document.body.scrollLeft -= __delta * wDelta; // Chrome
+    }
+}
+
 function animate() {
     requestAnimationFrame(animate);
     scrollEnd.style.display="block";
@@ -65,4 +85,13 @@ function animate() {
     }
     renderer.render(scene, camera);
 }
-window.onload=init;
+window.onload=()=> {
+    var html = document.documentElement;
+    if (html.attachEvent) {
+        html.attachEvent("onmousewheel", scrollDoc); // IE and Opera
+    } else {
+        html.addEventListener("DOMMouseScroll", scrollDoc, false); // FF
+        html.addEventListener("mousewheel", scrollDoc, false); // Chrome
+    }
+    init();
+}
