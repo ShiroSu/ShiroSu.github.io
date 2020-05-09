@@ -23,6 +23,9 @@ canvas {
     padding-top: 5px;
     height: 100%;
     margin-right: 65px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 .nav:after {
     content: "";
@@ -39,7 +42,6 @@ canvas {
     color: black;
     font-family: "Permanent Marker";
     font-size: 28px;
-    margin: 20px 0;
     line-height: 1.3em;
     list-style: none;
 }
