@@ -88,7 +88,7 @@ function init() {
         delay: 5200,
         duration: 2200
     });
-    setTimeout(()=> { document.body.style.overflowY="overlay"; preload.style.display="none" }, 7500);
+    setTimeout(()=> { preload.style.display="none" }, 7500);
     anime({
         targets: ".page",
         translateZ: [-880,0],
