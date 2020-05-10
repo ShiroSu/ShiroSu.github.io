@@ -11,13 +11,13 @@ let width=window.innerWidth, height=window.innerHeight,
     from=undefined, scrollcheck=true, scale_x=0, scale_y=0,
     struct=[header];
 //
-preload.style.display="none";
-page.style.transform="none";
-sections.forEach(item => item.style.display="block");
+// preload.style.display="none";
+// page.style.transform="none";
+// sections.forEach(item => item.style.display="block");
 
 
 
-// window.onload=init;
+window.onload=init;
 sliders_init();
 sections.forEach((item)=> struct.push(item));
 document.addEventListener("wheel", (e)=> {
