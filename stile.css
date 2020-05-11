@@ -138,19 +138,34 @@ section {
     border-bottom: 3px solid #b0e0e6;
 }
 .portfolio {
-    overflow: overlay;
+    overflow-x: hidden;
+    overflow-y: overlay;
 }
 .portfolio .wrapper {
     width: 100vw;
 }
 .portfolio .inner {
+    opacity: 0;
+    /* margin-left: -100vw; */
     padding: 50px;
-    /* background-color: peru; */
     display: flex;
     position: relative;
+    transform: translateX(-50vw);
+    transition-timing-function: ease-in;
+    /* transition-delay: .5s; */
+    transition-duration: 1s;
 }
 .portfolio .inner:nth-child(2n) {
     flex-direction: row-reverse;
+    /* margin-right: -100vw; */
+    transform: translateX(50vw);
+}
+.portfolio .appear:nth-child(n) {
+    opacity: 1;
+    transform: none;
+    transition-timing-function: ease-out;
+    transition-delay: .5s;
+    transition-duration: 2s;
 }
 .frame {
     width: 40vw;
@@ -158,7 +173,7 @@ section {
     overflow: hidden;
 }
 .frame iframe {
-    width: 1500px;
+    width: 1400px;
     height: 100vh;
     transform-origin: 0 0;
     transform: scaleX(.4) scaleY(.4);

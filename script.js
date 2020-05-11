@@ -4,6 +4,7 @@ let width=window.innerWidth, height=window.innerHeight,
     page=document.querySelector(".page"),
     header=document.querySelector("header"),
     sections=document.querySelectorAll("section"),
+    port_inn=sections[0].querySelectorAll(".inner"),
     frames=document.querySelectorAll(".frame"),
     sliders=document.querySelectorAll(".portfolio .inner input"),
     slide_value=document.querySelectorAll(".slide_value"),
@@ -11,18 +12,30 @@ let width=window.innerWidth, height=window.innerHeight,
     from=undefined, scrollcheck=true, scale_x=0, scale_y=0,
     struct=[header];
 //
-// preload.style.display="none";
-// page.style.transform="none";
-// sections.forEach(item => item.style.display="block");
+preload.style.display="none";
+page.style.transform="none";
+sections.forEach(item => item.style.display="block");
+// port_inn[0].classList.add("appear");
+// console.log(port_inn[0])
 
-
-
-window.onload=init;
+// window.onload=init;
 sliders_init();
 sections.forEach((item)=> struct.push(item));
 document.addEventListener("wheel", (e)=> {
-    let elem=scrollPrep(e);
-    if (from!=elem) scrollTo(elem);
+    let elem=scrollPrep(e),
+    port_check=find_parent(e);
+    // console.log(from.className+"\n"+elem.className);
+    if (from!=elem) {
+        scrollTo(elem);
+        if (port_check==sections[0]) {
+            for (i=0; i<port_inn.length; i++) port_inn[i].classList.remove("appear");
+        }
+        else if (elem==sections[0]) {
+            console.log("Problems still hide")
+            for (let i=0; i<port_inn.length; i++)
+            setTimeout(()=> port_inn[i].classList.add("appear"), i*1000);
+        }
+    }
     from=elem;
 });
 
