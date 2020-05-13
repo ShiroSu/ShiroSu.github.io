@@ -138,61 +138,56 @@ section {
     border-bottom: 3px solid #b0e0e6;
 }
 .portfolio {
-    overflow-x: hidden;
-    overflow-y: overlay;
+    overflow: hidden;
+    /* overflow-x: auto; */
 }
 .portfolio .wrapper {
     width: 100vw;
 }
-.portfolio .inner {
-    opacity: 0;
-    /* margin-left: -100vw; */
-    padding: 50px;
+.adaptive {
+    overflow: hidden;
+    width: 200vw;
     display: flex;
+    transition-duration: 1.7s;
+}
+.portfolio .inner {
+    width: 100vw;
+    height: 100vh;
     position: relative;
+}
+.main {
+    opacity: 0;
+    padding: 25px;
+    display: flex;
+    align-items: center;
     transform: translateX(-50vw);
     transition-timing-function: ease-in;
-    /* transition-delay: .5s; */
     transition-duration: 1s;
 }
-.portfolio .inner:nth-child(2n) {
-    flex-direction: row-reverse;
-    /* margin-right: -100vw; */
-    transform: translateX(50vw);
-}
-.portfolio .appear:nth-child(n) {
+.main.appear {
     opacity: 1;
     transform: none;
     transition-timing-function: ease-out;
     transition-delay: .5s;
-    transition-duration: 2s;
+    transition-duration: 1.7s;
 }
-.frame {
-    width: 40vw;
-    height: 40vh;
+.main .frame {
     overflow: hidden;
+    display: none;
+    transition-delay: .5s;
+}
+.frame.appear {
+    display: block;
 }
 .frame iframe {
-    width: 1400px;
-    height: 100vh;
     transform-origin: 0 0;
-    transform: scaleX(.4) scaleY(.4);
 }
-.portfolio input {
-    width: 40vw;
-    position: absolute;
-    bottom: 25px;
-}
-.portfolio .inner:nth-child(2n) input {
-    transform: rotate(180deg);
-}
-.slide_value {
-    position: absolute;
-    bottom: 0px;
-    color: whitesmoke;
-    font-family: "Raleway";
+.main iframe {
+    width: 100vw;
+    height: 100vh;
 }
 .portfolio .item {
+    width: 40vw;
     margin: 0 15px;
     display: flex;
     flex-direction: column;
@@ -201,15 +196,10 @@ section {
 }
 .page-name {
     color: #d0d6db;
+    text-shadow: 0 0 8px whitesmoke;
     font-size: 35px;
     display: flex;
     align-items: baseline;
-}
-.portfolio .inner:nth-child(2n) .item {
-    align-items: flex-end;
-}
-.portfolio .inner:nth-child(2n) .page-name h3 {
-    order: 2;
 }
 .comp {
     height: 37px;
@@ -221,7 +211,6 @@ section {
 .portfolio .item a {
     color: #d0d6db;
     font-size: 20px;
-    /* text-decoration: none; */
 }
 .v01 {
     font-family: "Indie Flower";
@@ -231,6 +220,84 @@ section {
 }
 .ani {
     font-family: "Permanent Marker";
+}
+.toAdapt {
+    position: absolute;
+    top: 10vh;
+    right: 5vh;
+    transform-origin: right bottom;
+}
+.appear .toAdapt {
+    cursor: pointer;
+    animation: goTo 5.6s 4.5s infinite forwards;
+    animation-play-state: paused;
+}
+.appear .toAdapt.animated {
+    animation-play-state: running;
+}
+@keyframes goTo {
+    6.25%, 18.75% {
+        transform: rotate(45deg);
+    }
+    12.5%, 25%, 100% {
+        transform: rotate(0deg);
+    }
+}
+.toAdapt object {
+    width: 64px;
+    transform: rotateY(180deg);
+    color: #000;
+    -webkit-filter: drop-shadow(0px 3px 2px whitesmoke);
+    filter: drop-shadow(0px 0px 8px whitesmoke);
+}
+.appear .toAdapt_hover {
+    animation: blink 3.5s .5s forwards;
+}
+@keyframes blink {
+    10%, 15%, 20%, 68% {
+        filter: drop-shadow(0px 0px 8px whitesmoke);
+    }
+    10.001%, 14.999%, 20.001%, 67.999% {
+        filter: contrast(.2);
+    }
+}
+.baffle {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    top: 0;
+}
+
+
+
+
+.adapt {
+    display: none;
+    padding: 20px;
+}
+.adapt.appear {
+    display: block;
+}
+.adapt .frame {
+    width: 90vw;
+    height: 85vh;
+    overflow: hidden;
+}
+.adapt iframe {
+    width: 1400px;
+    height: 100vh;
+}
+.adapt input {
+    width: 40vw;
+    position: absolute;
+    right: 18px;
+    bottom: 40px;
+}
+.slide_value {
+    position: absolute;
+    bottom: 10px;
+    color: whitesmoke;
+    font-family: "Raleway";
 }
 
 

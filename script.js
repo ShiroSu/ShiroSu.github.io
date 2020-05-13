@@ -2,47 +2,73 @@ let width=window.innerWidth, height=window.innerHeight,
     preload=document.querySelector(".preload"),
     preText=document.querySelector(".pre-text"),
     page=document.querySelector(".page"),
-    header=document.querySelector("header"),
-    sections=document.querySelectorAll("section"),
-    port_inn=sections[0].querySelectorAll(".inner"),
-    frames=document.querySelectorAll(".frame"),
-    sliders=document.querySelectorAll(".portfolio .inner input"),
-    slide_value=document.querySelectorAll(".slide_value"),
-    footer=document.querySelector(".footer"),
-    from=undefined, scrollcheck=true, scale_x=0, scale_y=0,
+    header=page.querySelector("header"),
+    sections=page.querySelectorAll("section"),
+    ports=page.querySelectorAll(".portfolio"),
+    wradap=page.querySelectorAll(".adaptive"),
+    main_inn=page.querySelectorAll(".main"),
+    hand=document.querySelectorAll(".toAdapt"),
+    adapt_inn=page.querySelectorAll(".adapt"),
+    mainFrames=page.querySelectorAll(".main .frame"),
+    adaptFrames=page.querySelectorAll(".adapt .frame"),
+    sliders=page.querySelectorAll(".adapt input"),
+    slide_value=page.querySelectorAll(".slide_value"),
+    footer=page.querySelector(".footer"),
+    from=undefined, scrollcheck=true, scale_x=0, k=0,
     struct=[header];
 //
 preload.style.display="none";
 page.style.transform="none";
 sections.forEach(item => item.style.display="block");
-// port_inn[0].classList.add("appear");
-// console.log(port_inn[0])
+// let inter=0;
+// setInterval(()=> {
+    // if (adapt_inn[0].getBoundingClientRect().left==0 && inter==0) {
+        // console.log(adaptFrames[0].getBoundingClientRect().x);
+        sliders.forEach((item, i)=> {
+            item.style.width=(item.max-item.min+20)*scale_x+"px";
+            item.style.right=(width-adaptFrames[i].getBoundingClientRect().right)+"px";
+            slide_value[i].innerHTML=item.value+"px";
+            slide_value[i].style.left=sliders[i].getBoundingClientRect().right-18+"px";
+        });
+        // inter=1;
+    // }
+// }, 100);
 
-// window.onload=init;
-sliders_init();
+
 sections.forEach((item)=> struct.push(item));
+// window.onload=init;
+// sliders_init();
+
+
 document.addEventListener("wheel", (e)=> {
-    let elem=scrollPrep(e),
-    port_check=find_parent(e);
-    // console.log(from.className+"\n"+elem.className);
+    let elem=scrollPrep(e);
     if (from!=elem) {
         scrollTo(elem);
-        if (port_check==sections[0]) {
-            for (i=0; i<port_inn.length; i++) port_inn[i].classList.remove("appear");
-        }
-        else if (elem==sections[0]) {
-            console.log("Problems still hide")
-            for (let i=0; i<port_inn.length; i++)
-            setTimeout(()=> port_inn[i].classList.add("appear"), i*1000);
-        }
+        appear(elem);
     }
     from=elem;
 });
 
-frames.forEach((item)=> {
-    item.addEventListener("mouseover", ()=> sections[0].style.overflowY="hidden");
-    item.addEventListener("mouseout", ()=> sections[0].style.overflowY="overlay");
+hand.forEach((item, i)=> {
+    item.addEventListener("mouseover", ()=> {
+        item.firstElementChild.classList.add("toAdapt_hover");
+        item.classList.remove("animated");
+    });
+    item.addEventListener("mouseout", ()=> {
+        item.firstElementChild.classList.remove("toAdapt_hover");
+        item.classList.add("animated");
+    });
+    item.addEventListener("click", ()=> {
+        adapt_inn[i].classList.add("appear");
+        sliders_init();
+        wradap[i].style.marginLeft="-100vw";
+        main_inn[i].classList.remove("appear");
+        setTimeout(()=> {
+            mainFrames[i].classList.remove("appear");
+        })
+    });
 });
+
 
 
 sliders.forEach((item, i)=> {
@@ -59,10 +85,10 @@ sliders.forEach((item, i)=> {
             }
             else slide_value[i].style.left=slide_left+"px";
         }
-        slide_value[i].innerHTML=item.value;
-        frames[i].children[0].style.width=item.value+"px";
-        frames[i].children[0].style.transform=`scaleX(${scale_x}) scaleY(.4)`;
-        frames[i].style.width=(item.value*scale_x)+"px";
+        slide_value[i].innerHTML=item.value+"px";
+        adaptFrames[i].children[0].style.width=item.value+"px";
+        adaptFrames[i].children[0].style.transform=`scaleX(${scale_x}) scaleY(.85)`;
+        adaptFrames[i].style.width=(item.value*scale_x)+"px";
     });
 });
 
@@ -121,8 +147,8 @@ function init() {
 
 function sliders_init() {
     sliders.forEach((item, i)=> {
-        scale_x=width*0.4/item.value;
-        frames[i].children[0].style.transform=`scaleX(${scale_x}) scaleY(.4)`;
+        scale_x=width*0.9/item.value;
+        adaptFrames[i].children[0].style.transform=`scaleX(${scale_x}) scaleY(.85)`;
     });
     slide_value.forEach((item, i)=> {
         item.innerHTML=sliders[i].value;
@@ -135,11 +161,10 @@ function sliders_init() {
 
 function find_parent(e) {
     let parent=e.target;
-    while (parent.offsetParent!=page) {
+    while (parent.offsetParent!=page)
         parent=parent.offsetParent;
-    }
     if (parent==header.firstElementChild)
-    parent=header;
+        parent=header;
     return parent;
 }
 
@@ -150,36 +175,38 @@ function scrollTo(elem) {
         behavior: "smooth"
     });
 }
-function scrollPrep(e) {
-    let dir=Math.sign(e.deltaY), elem=find_parent(e);
-    struct.forEach((item, i)=> {
-        let=scroll_pos=0, scroll_height=0;
+
+function appear(elem) {
+    ports.forEach((item, i)=> {
         if (elem==item) {
-            if (elem==sections[0]) {
-                scroll_pos=elem.scrollTop;
-                scroll_height=elem.scrollHeight;
-            }
-            if (dir>0) {
-                if (item!=sections[0]) {
-                    if (i==struct.length-1) return false;
-                    else elem=struct[i+1];
-                }
-                else {
-                    if (scroll_pos+item.clientHeight>=scroll_height) elem=struct[i+1];
-                    else return false;
-                }
-            }
-            else {
-                if (item!=sections[0]) {
-                    if (i==0) return false;
-                    else elem=struct[i-1];
-                }
-                else {
-                    if (scroll_pos<=0) elem=struct[i-1];
-                    else return false;
-                }
-            }
+            mainFrames[i].classList.add("appear");
+            main_inn[i].classList.add("appear");
+            let skeyl=mainFrames[i].offsetWidth/width;
+            mainFrames[i].firstElementChild.style.transform=`scale(${skeyl})`;
+            mainFrames[i].style.height=height*skeyl+"px";
+        }
+        else {
+            main_inn[i].classList.remove("appear");
+            setTimeout(()=> mainFrames[i].classList.remove("appear"), 400);
         }
     });
+}
+
+function scrollPrep(e) {
+    let dir=e.deltaY, elem=find_parent(e);
+    if (dir>0) {
+        for (i=struct.length-2; i>=0; i--) {
+            if (elem==struct[i]) {
+                elem=struct[i+1];
+            }
+        }
+    }
+    else {
+        for (i=1; i<struct.length; i++) {
+            if (elem==struct[i]) {
+                elem=struct[i-1];
+            }
+        } 
+    }
     return elem;
 }
