@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: #e0e0e0;
 }
 path {
     transition-duration: .3s;
@@ -12,8 +13,42 @@ path {
 .pop {
     opacity: 0;
     border-radius: 3px;
-    background-color: cornflowerblue;
+    box-shadow: 2px 2px 5px #222;
+    background-color: #1e1e1e;
+    color: #fff;
+    /* color: #ffe44d; */
+    font-family: sans-serif;
     position: absolute;
     top: 0; left: 0;
     padding: 5px;
+}
+.zoom {
+    position: absolute;
+    top: 15px; right: 15px;
+    font-size: 50px;
+}
+.enlarge, .diminish {
+    position: relative;
+    border: 1px solid #222;
+    /* padding: 0 10px; */
+    width: 50px; height: 58px;
+    cursor: pointer;
+}
+.enlarge {
+    border-radius: 10px 10px 0 0;
+    border-bottom: none;
+}
+.enlarge:after {
+    content: "+";
+    position: absolute;
+    right: 20%;
+}
+.diminish {
+    overflow: hidden;
+    border-radius: 0 0 10px 10px;
+}
+.diminish:after {
+    content: '_';
+    position: absolute;
+    top: -50%;right: 24%;
 }
