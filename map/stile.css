@@ -1,0 +1,19 @@
+body {
+    /* width: 100%;
+    height: 100vh; */
+}
+path {
+    transition-duration: .5s;
+}
+.container {
+    /* width: 100%;
+    height: 100%; */
+}
+.pop {
+    opacity: 0;
+    border-radius: 3px;
+    background-color: cornflowerblue;
+    position: absolute;
+    top: 0; left: 0;
+    padding: 5px;
+}
