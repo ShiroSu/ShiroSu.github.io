@@ -5,7 +5,7 @@ popap = document.querySelector('.pop'),
 ontop=2514, onbot=2304, onleft=2686, onright=3033,
 vall=ontop-onbot, hall=onright-onleft, vcorar, hcorar, vcor, hcor;
 
-console.log(mapal.getBoundingClientRect());
+console.log(mapal.getElementById("AZE1704").getBoundingClientRect());
 dots.forEach(item=> {
     vcorar=item.getAttribute("data-x").split(",");
     hcorar=item.getAttribute("data-y").split(",");
@@ -49,6 +49,7 @@ azz.forEach(item=> {
     });
 });
 let zoom=document.querySelector(".zoom"), mw,
+occup=document.getElementById("occup"),
 zoom_pl=document.querySelector(".enlarge"),
 zoom_mi=document.querySelector(".diminish");
 mw=Number(mapal.width.animVal.valueAsString.replace("%", ""));
@@ -71,4 +72,30 @@ zoom.addEventListener("click", e=>{
     }
     console.log(mw);
     mapal.setAttribute("width", `${mw}%`);
+    occup.style.bottom=mapal.getElementById("AZE1740").bottom+"px";
+    occup.style.left=mapal.getElementById("AZE1682").left+"px";
+    console.log("Mapal: ",mapal.getElementById("AZE1682").getBoundingClientRect().left, mapal.getElementById("AZE1704").getBoundingClientRect().bottom);
+    console.log("Occup: ", occup.getBoundingClientRect().left, occup.getBoundingClientRect().bottom);
 });
+// document.addEventListener("mousemove", e=> {
+//     if (e.which) {
+//         if (!e.altKey) {
+//             occup.style.top=e.pageY-occup.getBoundingClientRect().height/2+"px";
+//             occup.style.left=e.pageX-occup.getBoundingClientRect().width/2+"px";
+//             if (e.shiftKey) {
+//                 occup.style.width=Number(occup.style.width.replace("%", ""))-(-0.1)+"%";
+//                 occup.style.height=Number(occup.style.height.replace("%", ""))-(-0.1)+"%";
+//             }
+//             if (e.ctrlKey) {
+//                 occup.style.width=Number(occup.style.width.replace("%", ""))-(0.1)+"%";
+//                 occup.style.height=Number(occup.style.height.replace("%", ""))-(0.1)+"%";
+//             }
+//         }
+//         // console.log(Number(occup.style.left.replace("px", ""))*100/e.target.getBoundingClientRect().width)
+//         console.log(Number(occup.style.left.replace("px", "")), occup.getBoundingClientRect().left)
+//         // console.log(e.target.offsetParent.getBoundingClientRect().height)
+//     }
+// })
+// occup.style.bottom=mapal.getElementById("AZE1740").bottom+"px";
+// occup.style.left=mapal.getElementById("AZE1682").left+"px";
+// occup.style.wi
