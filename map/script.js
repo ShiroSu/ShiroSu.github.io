@@ -68,8 +68,8 @@ dots.forEach(item=> {
     // console.log((ontop-(vcorar[0]*60-(-vcorar[1])))*100/vall);
     vcor=(ontop-(vcorar[0]*60-(-vcorar[1])))*100/vall;
     hcor=((hcorar[0]*60-(-hcorar[1]))-onleft)*100/hall;
-    item.setAttribute("cx", `${hcor}%`);
-    item.setAttribute("cy", `${vcor}%`);
+    item.setAttribute("cx", `${hcor+2.5}%`);
+    item.setAttribute("cy", `${vcor+2}%`);
     item.addEventListener("mouseenter", e=> {
         item.setAttribute("r", "7");
         item.style.transitionDuration="0.3s";
@@ -98,7 +98,14 @@ zoom.addEventListener("click", e=>{
     if (mw<=40.1) zoom_mi.style.cursor="default";
     else zoom_mi.style.cursor="pointer";
     console.log(mw);
+    if (mapal.getBoundingClientRect().height>window.innerHeight)
+        document.body.style.height="100%";
+    else document.body.style.height="100vh";
     mapal.setAttribute("width", `${mw}%`);
+    if (mapal.getBoundingClientRect().height>window.innerHeight-10)
+        document.body.style.height="100%";
+    else document.body.style.height="100vh";
+    console.log(mapal.getBoundingClientRect().height)
 });
 function dist(arr) {
     arr.forEach(item=> {
