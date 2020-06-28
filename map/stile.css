@@ -1,15 +1,20 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #e0e0e0;
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(#e0e0e0 20%, #fff 50%, #e0e0e0 80%) no-repeat;
 }
-path {
+path, polygon {
+    fill: #d0cfcf;
+    color: #fdc75d;
     transition-duration: .3s;
 }
 .container {
     position: relative;
-    /* width: 100%;
-    height: 100%; */
+}
+#NKR_Borders {
+    fill: none;
 }
 .pop {
     opacity: 0;
@@ -17,7 +22,6 @@ path {
     box-shadow: 2px 2px 5px #222;
     background-color: #1e1e1e;
     color: #fff;
-    /* color: #ffe44d; */
     font-family: sans-serif;
     position: absolute;
     top: 0; left: 0;
@@ -52,13 +56,4 @@ path {
     content: '_';
     position: absolute;
     top: -50%;right: 24%;
-}
-#occup {
-    /* background: url("../karabakh.png") no-repeat; */
-    /* background-size: contain; */
-    position: absolute;
-    /* width: 25.1%; */
-    /* height: 43.7%; */
-    top: 43.09%;
-    left: 7.67%;
 }
