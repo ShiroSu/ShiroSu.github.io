@@ -1,0 +1,46 @@
+.header {
+  width: 100%;
+  height: 100vh;
+  background: url("img/bf.png") center top no-repeat;
+  background-size: 100%;
+  background-color: #244dd1;
+  color: #fff;
+  padding-top: 15px;
+}
+.header .topp {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.header .topp .lang a {
+  font-size: 22px;
+  line-height: 57px;
+  color: #ffffff;
+  font-weight: 600;
+  font-family: "Montserrat";
+  text-align: center;
+  padding: 0 8px;
+  border-right: 2px solid white;
+}
+.header .topp .lang a:last-child {
+  border: none;
+}
+.header .topp .logo .img {
+  height: -webkit-max-content;
+  height: max-content;
+}
+.header .topp .logo .name {
+  font-size: 25px;
+}
+.header .topp .logo .name:after {
+  content: "PVC & Izo Hebeschiebe";
+  display: block;
+  font-size: 1.2rem;
+}
+.header .topp .pages a {
+  margin: 0 15px;
+}
+.header .about {
+  margin-left: 50%;
+  font-size: 21px;
+}
