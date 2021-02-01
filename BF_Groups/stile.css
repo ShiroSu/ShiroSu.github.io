@@ -15,7 +15,7 @@ header {
 }
 
 .lang a {
-  font-size: 22px;
+  font-size: 19px;
   line-height: 57px;
   color: #ffffff;
   font-weight: 600;
@@ -46,14 +46,14 @@ header {
   font-weight: 400;
 }
 
-.about {
+.lil_discribe {
   width: 60%;
 }
-.about h2 {
+.lil_discribe h2 {
   position: relative;
   font-weight: 700;
 }
-.about h2:after {
+.lil_discribe h2:after {
   content: "";
   height: 3px;
   width: 50%;
@@ -61,7 +61,7 @@ header {
   margin-top: 2rem;
   background-color: #fff;
 }
-.about p {
+.lil_discribe p {
   font-size: 20px;
 }
 
@@ -76,6 +76,7 @@ header {
   background-color: #fff;
   border-radius: 40px 0 40px 0;
   font-size: 20px;
+  cursor: pointer;
 }
 .order:hover {
   color: #1f78cf;
