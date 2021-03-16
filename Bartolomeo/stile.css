@@ -1,0 +1,15 @@
+body, * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box
+}
+
+.header {
+	height: 100vh;
+	position: relative;
+	background-color: #90f1ef;
+}
+.header img {
+	padding: 15vh 0;
+	height: 100vh;
+}
