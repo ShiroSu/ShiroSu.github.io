@@ -1,6 +1,7 @@
 window.onload=function() {
     let toggle=true;
     let input=document.querySelector(".input");
+    let message = { height: document.body.scrollHeight, width: document.body.scrollWidth }
     let cur=["usd", "eur", "gbp", "rub"];
     let coid=[]; let bid=[]; let sid=[];
     let buy=[], sell=[], convb=[], convs=[];
@@ -23,6 +24,9 @@ window.onload=function() {
     // console.log(document.querySelector(".house").nextSibling.previousSibling.clientWidth)
 
     let lec=cur.length; let len=navi.length;
+    
+    window.top.postMessage(message, "*")
+    
     for (i=lec-1; i>=0; i--) {
         coid[i]=document.getElementById("co"+cur[i]);
         bid[i]=document.getElementById("b"+cur[i]);
